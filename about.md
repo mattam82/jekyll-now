@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I'm a researcher at Inria (see [http://www.irif.fr/~sozeau] for my
+academic website) and diletante musician (musings at
+https://soundcloud.com/mattamzik)
