@@ -7,4 +7,4 @@ I've been playing with this proof which I already found quite neat in pure Coq
 and adapting it to HoTT using truncation instead of double negation. In two
 words, it works!
 
-[HoTT_Markov](http://mattam82.github.io/coq/HoTT_Markov.html) ([source][http://mattam82.github.io/coq/HoTT_Markov.v), requires the [HoTT library](http://github.com/HoTT/HoTT)).
+[HoTT_Markov](http://mattam82.github.io/coq/HoTT_Markov.html) ([source](http://mattam82.github.io/coq/HoTT_Markov.v), requires the [HoTT library](http://github.com/HoTT/HoTT)).
