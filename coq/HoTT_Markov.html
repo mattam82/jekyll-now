@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>HoTT_Markov</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library HoTT_Markov</h1>
+
+<div class="code">
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <span class="id" title="library">HoTT</span>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <span class="id" title="library">HoTT.Types.Bool</span>.<br/>
+<span class="id" title="keyword">Set</span> <span class="id" title="var">Universe</span> <span class="id" title="var">Polymorphism</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <a name="UniqueEx"><span class="id" title="section">UniqueEx</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Context</span> `{<span class="id" title="class">Funext</span>}.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Unique existence of an <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a></span> <span class="inlinecode">:</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a></span> such that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a></span>:
+      there exists an A and it is the only one w.r.t equality 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a name="exists_unique"><span class="id" title="definition">exists_unique</span></a> {<span class="id" title="var">A</span> : <span class="id" title="keyword">Type</span>} (<span class="id" title="var">P</span> : <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="keyword">Type</span>) :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">{</span></a> <span class="id" title="var">x</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">:</span></a> <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">&amp;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">(</span></a><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a> <span class="id" title="var">x</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">*</span></a> <span class="id" title="notation">forall</span> <span class="id" title="var">y</span> : <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#y"><span class="id" title="variable">y</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="var">x</span> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#y"><span class="id" title="variable">y</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">}</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Unique existence is clearly an HProp: by construction only
+      one witness exists, as long as the predicate is an HProp itself. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="exists_unique_hprop"><span class="id" title="lemma">exists_unique_hprop</span></a> {<span class="id" title="var">A</span>} `{<span class="id" title="abbreviation">IsHSet</span> <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a>} {<span class="id" title="var">P</span> : <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="abbreviation">hProp</span>} : <span class="id" title="abbreviation">IsHProp</span> (<a class="idref" href="HoTT_Markov.html#exists_unique"><span class="id" title="definition">exists_unique</span></a> <a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="HoTT_Markov.html#exists_unique"><span class="id" title="definition">exists_unique</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">refine</span> (<span class="id" title="definition">ishprop_sigma_disjoint</span> (<span class="id" title="var">A</span>:=<span class="id" title="var">A</span>) <span class="id" title="var">_</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">x</span> <span class="id" title="var">y</span> [<span class="id" title="var">px</span> <span class="id" title="var">pxy</span>] [<span class="id" title="var">py</span> <span class="id" title="var">_</span>].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">exact</span> (<span class="id" title="var">pxy</span> <span class="id" title="var">y</span> <span class="id" title="var">py</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="HoTT_Markov.html#UniqueEx"><span class="id" title="section">UniqueEx</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <a name="Markov"><span class="id" title="section">Markov</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Context</span> `{<span class="id" title="class">Funext</span>}.<br/>
+&nbsp;&nbsp;<span class="id" title="var">Universe</span> <span class="id" title="var">i</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Context</span> (<span class="id" title="var">P</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="inductive">Bool@</span>{<span class="id" title="var">i</span>}).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Regular existence 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a name="exP"><span class="id" title="definition">exP</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">{</span></a><span class="id" title="var">n</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">:</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">&amp;</span></a> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">n</span> <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#50b5d8dd6be4fba768e35617e518ad76"><span class="id" title="notation">}</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Unique existence of a mininal such <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> with <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">=</span> <span class="inlinecode"><span class="id" title="constructor">true</span></span> 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a name="exuP"><span class="id" title="definition">exuP</span></a> := <a class="idref" href="HoTT_Markov.html#exists_unique"><span class="id" title="definition">exists_unique</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a> =&gt; <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">(</span></a><a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">*</span></a> <span class="id" title="notation">forall</span> <span class="id" title="var">k</span><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a>).<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Instance</span> <a name="exuP_hprop"><span class="id" title="instance">exuP_hprop</span></a> : <span class="id" title="abbreviation">IsHProp</span> <a class="idref" href="HoTT_Markov.html#exuP"><span class="id" title="definition">exuP</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">refine</span> <a class="idref" href="HoTT_Markov.html#exists_unique_hprop"><span class="id" title="lemma">exists_unique_hprop</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+We actually have to deal with two notions of accessibility:
+      The first is "indefinite" existence of a natural number satisfying
+      <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span>. In vanila Coq with Prop, this can be used directly to prove termination
+      of a function of type <span class="inlinecode">(<span class="id" title="tactic">exists</span></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">:</span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>,</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>)</span> <span class="inlinecode">-&gt;</span> <span class="inlinecode">{</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">:</span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a></span> <span class="inlinecode">|</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">}</span>,
+      using the idea that accessibility is a proposition.
+   
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Inductive</span> <a name="acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> (<span class="id" title="var">i</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>) : <span class="id" title="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name="AccNat_true"><span class="id" title="constructor">AccNat_true</span></a> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a><br/>
+&nbsp;&nbsp;| <a name="AccNat_succ"><span class="id" title="constructor">AccNat_succ</span></a> : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#S"><span class="id" title="constructor">S</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+The second one is accessibility only of the initial segment of
+      natural numbers up to the one for which <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> holds.
+
+<div class="paragraph"> </div>
+
+      While <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> type is not an <span class="inlinecode"><span class="id" title="library">HProp</span></span> in general as there
+      may be multiple <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> <span class="inlinecode">=</span> <span class="inlinecode"><span class="id" title="constructor">true</span></span> proofs in general, <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> is. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Inductive</span> <a name="acc_nat"><span class="id" title="inductive">acc_nat</span></a> (<span class="id" title="var">i</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>) : <span class="id" title="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name="AccNat0"><span class="id" title="constructor">AccNat0</span></a> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a><br/>
+&nbsp;&nbsp;| <a name="AccNatS"><span class="id" title="constructor">AccNatS</span></a> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">false</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#S"><span class="id" title="constructor">S</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+We show that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> for any <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> is an <span class="inlinecode"><span class="id" title="library">HProp</span></span>.
+      This relies on the fact that <span class="inlinecode"><span class="id" title="var">bool</span></span> is an <span class="inlinecode"><span class="id" title="library">HSet</span></span>. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Instance</span> <a name="acc_nat_hprop"><span class="id" title="instance">acc_nat_hprop</span></a> <span class="id" title="var">n</span> : <span class="id" title="abbreviation">IsHProp</span> (<a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="lemma">equiv_hprop_allpath</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">x</span> <span class="id" title="var">y</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">x</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">y</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>). <span class="id" title="tactic">apply</span> <span class="id" title="constructor">idpath</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">elimtype</span> <span class="id" title="inductive">Empty</span>. <span class="id" title="tactic">rewrite</span> <span class="id" title="var">p</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">apply</span> <span class="id" title="definition">true_ne_false</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">elimtype</span> <span class="id" title="inductive">Empty</span>; <span class="id" title="tactic">rewrite</span> <span class="id" title="var">p</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">apply</span> <span class="id" title="definition">true_ne_false</span>; <span class="id" title="tactic">symmetry</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<span class="id" title="var">IHx</span> <span class="id" title="var">y</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="constructor">idpath</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Ltac</span> <span class="id" title="var">easy</span> ::= <span class="id" title="tactic">trivial</span> || <span class="id" title="tactic">assumption</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+For <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span>, if some <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode">(<a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a></span> <span class="inlinecode">+</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>)</span> <span class="inlinecode">=</span> <span class="inlinecode"><span class="id" title="constructor">true</span></span> proof exists,
+      then <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> is accessible. This follows the same pattern as the
+      usual Coq proof with <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a></span> in <span class="inlinecode"><span class="id" title="keyword">Prop</span></span>. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_some_nat_plus"><span class="id" title="lemma">acc_some_nat_plus</span></a> : <span class="id" title="notation">forall</span> <span class="id" title="var">x</span> <span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a><span class="id" title="notation">,</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> (<a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">x</span>; <span class="id" title="tactic">intros</span>; <span class="id" title="tactic">simpl</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="var">now</span> <span class="id" title="tactic">constructor</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="tactic">constructor</span> 2. <span class="id" title="tactic">apply</span> <span class="id" title="var">IHx</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+So assuming (non-unique) existence, <span class="inlinecode">0</span> is accessible. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_some_nat_0"><span class="id" title="lemma">acc_some_nat_0</span></a> : <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> 0.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">Htr</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="HoTT_Markov.html#acc_some_nat_plus"><span class="id" title="lemma">acc_some_nat_plus</span></a> <span class="id" title="var">Htr</span><span class="id" title="notation">.1</span>). <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">exact</span> <span class="id" title="var">Htr</span><span class="id" title="notation">.2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+For the proof-irrelevant <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> it is a bit more involved.
+      As long as <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> holds for some <i>minimal</i> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a></span> <span class="inlinecode">+</span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span>, <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> holds. 
+<div class="paragraph"> </div>
+
+ We add an axiom to not do the trivial but cumbersome arithmetic proofs. 
+</div>
+<div class="code">
+&nbsp;&nbsp;<span class="id" title="keyword">Axiom</span> <a name="arith"><span class="id" title="axiom">arith</span></a> : <span class="id" title="notation">forall</span> <span class="id" title="var">A</span><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#A"><span class="id" title="variable">A</span></a>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_nat_plus"><span class="id" title="lemma">acc_nat_plus</span></a> : <span class="id" title="notation">forall</span> <span class="id" title="var">x</span> <span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a><span class="id" title="notation">,</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> (<a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">(</span></a><span class="id" title="notation">forall</span> <span class="id" title="var">k</span><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">false</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">x</span>; <span class="id" title="tactic">intros</span>; <span class="id" title="tactic">simpl</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="var">now</span> <span class="id" title="tactic">constructor</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="tactic">constructor</span> 2. <span class="id" title="tactic">apply</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#arith"><span class="id" title="axiom">arith</span></a>. <span class="comment">(*&nbsp;n&nbsp;&lt;&nbsp;(x&nbsp;+&nbsp;n).+1&nbsp;*)</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">IHx</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">apply</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">simpl</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;Missing&nbsp;arithmetic&nbsp;*)</span><br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="le_Sn_m"><span class="id" title="lemma">le_Sn_m</span></a> <span class="id" title="var">n</span> <span class="id" title="var">m</span> : <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a><span class="id" title="notation">.+1</span> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#9482aae3d3b06e249765c1225dbb8cbb"><span class="id" title="notation">-</span></a> 1.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#arith"><span class="id" title="axiom">arith</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="minus_n_0"><span class="id" title="lemma">minus_n_0</span></a> <span class="id" title="var">n</span> : <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#9482aae3d3b06e249765c1225dbb8cbb"><span class="id" title="notation">-</span></a> 0 <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">destruct</span> <span class="id" title="var">n</span>; <span class="id" title="tactic">auto</span>. <span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="gt_0_minus_1_plus_1"><span class="id" title="lemma">gt_0_minus_1_plus_1</span></a> <span class="id" title="var">k</span> <span class="id" title="var">m</span> : <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="notation">(</span><a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#9482aae3d3b06e249765c1225dbb8cbb"><span class="id" title="notation">-</span></a> 1<span class="id" title="notation">).+1</span> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">m</span>; <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">intros</span>; <span class="id" title="tactic">trivial</span>. <span class="id" title="tactic">elim</span> <span class="id" title="var">H0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#minus_n_0"><span class="id" title="lemma">minus_n_0</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="lt_Sn_m"><span class="id" title="lemma">lt_Sn_m</span></a> <span class="id" title="var">k</span> <span class="id" title="var">m</span> <span class="id" title="var">n</span> : <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a><span class="id" title="notation">.+1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#9482aae3d3b06e249765c1225dbb8cbb"><span class="id" title="notation">-</span></a> 1 <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">unfold</span> <span class="id" title="definition">Nat.lt</span> <span class="id" title="tactic">in</span> *.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">change</span> (@<span class="id" title="projection">trunctype_type</span> <span class="id" title="var">_</span> (<span class="id" title="projection">dhprop_hprop</span> (<span class="id" title="var">m</span> <span class="id" title="notation">&lt;=</span> <span class="id" title="var">n</span>))) <span class="id" title="tactic">in</span> <span class="id" title="var">X0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> (<a class="idref" href="HoTT_Markov.html#gt_0_minus_1_plus_1"><span class="id" title="lemma">gt_0_minus_1_plus_1</span></a> <span class="id" title="var">k</span>); <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="le_not_lt"><span class="id" title="lemma">le_not_lt</span></a> <span class="id" title="var">n</span> <span class="id" title="var">m</span> : <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="inductive">Empty</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">revert</span> <span class="id" title="var">m</span> ; <span class="id" title="tactic">induction</span> <span class="id" title="var">n</span>. <span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <span class="id" title="var">IHn</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#le_Sn_m"><span class="id" title="lemma">le_Sn_m</span></a>; <span class="id" title="tactic">apply</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">apply</span> (<a class="idref" href="HoTT_Markov.html#lt_Sn_m"><span class="id" title="lemma">lt_Sn_m</span></a> <span class="id" title="var">n</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="le_ne_lt"><span class="id" title="lemma">le_ne_lt</span></a> <span class="id" title="var">m</span> <span class="id" title="var">n</span> : <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <span class="id" title="notation">&lt;&gt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#m"><span class="id" title="variable">m</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">revert</span> <span class="id" title="var">m</span>; <span class="id" title="tactic">induction</span> <span class="id" title="var">n</span>; <span class="id" title="tactic">intros</span> <span class="id" title="var">m</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="tactic">in</span> *. <span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">elim</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">destruct</span> <span class="id" title="var">m</span>. <span class="id" title="tactic">auto</span>. <span class="id" title="tactic">elim</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">m</span>. <span class="id" title="tactic">trivial</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">change</span> (@<span class="id" title="projection">trunctype_type</span> <span class="id" title="var">_</span> (<span class="id" title="projection">dhprop_hprop</span> (<span class="id" title="var">m</span> <span class="id" title="notation">&lt;</span> <span class="id" title="var">n</span>))).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">IHn</span>. <span class="id" title="tactic">apply</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">eqmn</span>. <span class="id" title="tactic">rewrite</span> <span class="id" title="var">eqmn</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">elim</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">reflexivity</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Thanks to unique existence and the fact that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> is an
+      HProp, we can use the weaker truncated unique existence assumption
+      to prove that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode">0</span> is inhabited.
+      The proof starts by striping the trunctation and applying
+      <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat_plus"><span class="id" title="lemma">acc_nat_plus</span></a></span>.
+   
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_nat_0"><span class="id" title="lemma">acc_nat_0</span></a> : <span class="id" title="inductive">Trunc</span> <span class="id" title="notation">-1</span> <a class="idref" href="HoTT_Markov.html#exuP"><span class="id" title="definition">exuP</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> 0.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">Htr</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">strip_truncations</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="HoTT_Markov.html#acc_nat_plus"><span class="id" title="lemma">acc_nat_plus</span></a> <span class="id" title="var">Htr</span><span class="id" title="notation">.1</span>). <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">exact</span> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#fst"><span class="id" title="projection">fst</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#fst"><span class="id" title="projection">fst</span></a> <span class="id" title="var">Htr</span><span class="id" title="notation">.2</span>)).<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Htr</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">n</span> [[<span class="id" title="var">Pn</span> <span class="id" title="var">Pnbelow</span>] <span class="id" title="var">Hpn</span>]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X</span>. <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">k</span> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">k</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">k</span>) <span class="id" title="tactic">at</span> 2 3; <span class="id" title="tactic">intros</span> <span class="id" title="var">Pk</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">Pnbelow</span> <span class="id" title="var">_</span> <span class="id" title="var">Pk</span>). <span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#arith"><span class="id" title="axiom">arith</span></a>. <span class="comment">(*&nbsp;arithmetic&nbsp;contradiction&nbsp;*)</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">constructor</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Using any of these two accessibility predicates, we can show
+      untrucated existence. We can even enrich our search procedure to
+      show it produces the right witness: the first natural greater or
+      equal to n having the property <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span>. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_nat_plus_inv"><span class="id" title="lemma">acc_nat_plus_inv</span></a> : <span class="id" title="notation">forall</span> <span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a><span class="id" title="notation">,</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">(</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#84eb6d2849dbf3581b1c0c05add5f2d8"><span class="id" title="notation">exists</span></a> <span class="id" title="var">x</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#84eb6d2849dbf3581b1c0c05add5f2d8"><span class="id" title="notation">,</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">(</span></a><a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> (<a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) <span class="id" title="notation">=</span> <span class="id" title="constructor">true</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">*</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">(</span></a><span class="id" title="notation">forall</span> <span class="id" title="var">k</span><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">&lt;=</span> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">&lt;</span> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="notation">=</span> <span class="id" title="constructor">false</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#d19c7eafd0e2d195d10df94b392087b5"><span class="id" title="notation">)</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">)</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> 1.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="tactic">exists</span> 0. <span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>. <span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X0</span>. <span class="id" title="tactic">unfold</span> <span class="id" title="definition">Nat.lt</span> <span class="id" title="tactic">in</span> <span class="id" title="var">X0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#le_not_lt"><span class="id" title="lemma">le_not_lt</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">X</span>. <span class="id" title="tactic">elim</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">X0</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="id" title="tactic">destruct</span> <span class="id" title="var">IHX</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">x</span> [<span class="id" title="var">PSx</span> <span class="id" title="var">Pfalse</span>]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">exists</span> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#S"><span class="id" title="constructor">S</span></a> <span class="id" title="var">x</span>); <span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">simpl</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">intros</span> <span class="id" title="var">k</span> <span class="id" title="var">ik</span> <span class="id" title="var">kix</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<span class="id" title="definition">dec_paths</span> <span class="id" title="var">i</span> <span class="id" title="var">k</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++ <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <span class="id" title="var">p0</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++ <span class="id" title="tactic">assert</span>(<span class="id" title="var">i</span> <span class="id" title="notation">&lt;</span> <span class="id" title="var">k</span>) <span class="id" title="tactic">by</span> <span class="id" title="tactic">apply</span> (<a class="idref" href="HoTT_Markov.html#le_ne_lt"><span class="id" title="lemma">le_ne_lt</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">ik</span> <span class="id" title="var">n</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">Pfalse</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">X0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+A simpler version of the proof just building the witness is: 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Fixpoint</span> <a name="find_ex"><span class="id" title="definition">find_ex</span></a> (<span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>) (<span class="id" title="var">a</span> : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="HoTT_Markov.html#a"><span class="id" title="variable">a</span></a> <span class="id" title="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="HoTT_Markov.html#AccNat0"><span class="id" title="constructor">AccNat0</span></a> <span class="id" title="var">p</span> =&gt; <span class="id" title="notation">(</span><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <span class="id" title="notation">;</span> <span class="id" title="var">p</span><span class="id" title="notation">)</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="HoTT_Markov.html#AccNatS"><span class="id" title="constructor">AccNatS</span></a> <span class="id" title="var">p</span> <span class="id" title="var">pr</span> =&gt; <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> (<a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a><span class="id" title="notation">.+1</span>) <span class="id" title="var">pr</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">end</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_ex_wit"><span class="id" title="lemma">find_ex_wit</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">p</span> : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <span class="id" title="notation">(</span><a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a><span class="id" title="notation">).1</span> <span class="id" title="notation">=</span> (<a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Peano.html#b3eea360671e1b32b18a26e15b3aace3"><span class="id" title="notation">+</span></a> <span class="id" title="notation">(</span><a class="idref" href="HoTT_Markov.html#acc_nat_plus_inv"><span class="id" title="lemma">acc_nat_plus_inv</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a><span class="id" title="notation">).1</span>)%<span class="id" title="var">nat</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">p</span>; <span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">apply</span> <span class="id" title="lemma">nat_plus_n_O</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <span class="id" title="var">IHp</span>. <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_Sm</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Using the <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a></span> variant, we have to be careful to
+      mimick the same computational content:
+      we don't use the induction hypothesis directly in the
+      inductive case, but only if <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> does not hold. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> : <span class="id" title="notation">forall</span> <span class="id" title="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a><span class="id" title="notation">,</span> <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> 1.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="comment">(*&nbsp;Base&nbsp;case&nbsp;*)</span> <span class="id" title="tactic">exists</span> <span class="id" title="var">i</span>. <span class="id" title="tactic">exact</span> <span class="id" title="var">p</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- <span class="comment">(*&nbsp;Inductively,&nbsp;we&nbsp;first&nbsp;test&nbsp;if&nbsp;<span class="inlinecode"><span class="id" title="var">P</span></span> <span class="inlinecode"><span class="id" title="var">i</span></span>&nbsp;holds&nbsp;already&nbsp;*)</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2. <span class="id" title="tactic">exists</span> <span class="id" title="var">i</span>. <span class="id" title="tactic">exact</span> <span class="id" title="var">X0</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">exact</span> <span class="id" title="var">IHX</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+We start the search at <span class="inlinecode">0</span>, using the existence or truncated unique existence proofs. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a name="find_some_first"><span class="id" title="definition">find_some_first</span></a> (<span class="id" title="var">x</span> : <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a>) := <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> 0 (<a class="idref" href="HoTT_Markov.html#acc_some_nat_0"><span class="id" title="lemma">acc_some_nat_0</span></a> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a>).<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a name="find_first"><span class="id" title="definition">find_first</span></a> (<span class="id" title="var">t</span> : <span class="id" title="inductive">Trunc</span> <span class="id" title="notation">-1</span> <a class="idref" href="HoTT_Markov.html#exuP"><span class="id" title="definition">exuP</span></a>) := <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> 0 (<a class="idref" href="HoTT_Markov.html#acc_nat_0"><span class="id" title="lemma">acc_nat_0</span></a> <a class="idref" href="HoTT_Markov.html#t"><span class="id" title="variable">t</span></a>).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Actually, there is an embedding of the accessibility proofs. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_some_nat_acc_nat"><span class="id" title="lemma">acc_some_nat_acc_nat</span></a> {<span class="id" title="var">i</span>} : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> 1. <span class="id" title="tactic">constructor</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> : <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2. <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">constructor</span>. <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">constructor</span> 2.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="acc_nat_acc_some_nat"><span class="id" title="lemma">acc_nat_acc_some_nat</span></a> {<span class="id" title="var">i</span>} : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> 1. <span class="id" title="tactic">constructor</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">constructor</span> 2. <span class="id" title="tactic">apply</span> <span class="id" title="var">IHX</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Finding the witness is clearly independent of the accessibility proof. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_ex_find_some_ex"><span class="id" title="lemma">find_ex_find_some_ex</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">p</span> : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> (<a class="idref" href="HoTT_Markov.html#acc_nat_acc_some_nat"><span class="id" title="lemma">acc_nat_acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">apply</span> <span class="id" title="constructor">idpath</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="var">IHp</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2 3.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">Htrue</span>. <span class="id" title="tactic">elimtype</span> <span class="id" title="inductive">Empty</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">now</span> <span class="id" title="tactic">rewrite</span> <span class="id" title="var">Htrue</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p</span>; <span class="id" title="tactic">apply</span> <span class="id" title="definition">true_ne_false</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">reflexivity</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+The following lemma is a proof that the search procedure
+      <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#find_some_first"><span class="id" title="definition">find_some_first</span></a></span> indeed stops at the first <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> such that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span>
+      holds, whatever the accessibility proof. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_some_ex_prf_irrel"><span class="id" title="lemma">find_some_ex_prf_irrel</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">x</span> <span class="id" title="var">y</span> : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#y"><span class="id" title="variable">y</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">x</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">y</span>; <span class="id" title="tactic">simpl</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2 3. <span class="id" title="tactic">intros</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>). <span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <span class="id" title="var">p</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p0</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">elimtype</span> <span class="id" title="inductive">Empty</span>; <span class="id" title="tactic">apply</span> <span class="id" title="definition">true_ne_false</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2 3. <span class="id" title="tactic">intros</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>; <span class="id" title="tactic">elimtype</span> <span class="id" title="inductive">Empty</span>. <span class="id" title="tactic">rewrite</span> <span class="id" title="var">p</span> <span class="id" title="tactic">in</span> <span class="id" title="var">p0</span>; <span class="id" title="var">now</span> <span class="id" title="tactic">apply</span> <span class="id" title="definition">true_ne_false</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>) <span class="id" title="tactic">at</span> 2 3 7. <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">reflexivity</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">apply</span> <span class="id" title="var">IHx</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+This implies that starting from an arbitrary accessibility proof
+      is the same as starting from a minimal one. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_some_ex_find_ex"><span class="id" title="lemma">find_some_ex_find_ex</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">p</span> : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) :<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> (<a class="idref" href="HoTT_Markov.html#acc_some_nat_acc_nat"><span class="id" title="lemma">acc_some_nat_acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#find_ex_find_some_ex"><span class="id" title="lemma">find_ex_find_some_ex</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#find_some_ex_prf_irrel"><span class="id" title="lemma">find_some_ex_prf_irrel</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Existence of an <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> such that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> implies unique existence
+      of a minimal <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a></span> such that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a></span>.
+
+<div class="paragraph"> </div>
+
+      This uses the <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#find_some_first"><span class="id" title="definition">find_some_first</span></a></span> procedure and its equivalence
+      with the <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#find_first"><span class="id" title="definition">find_first</span></a></span> procedure to show the invariant that
+      the minimal <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#k"><span class="id" title="variable">k</span></a></span> starting from <span class="inlinecode">0</span> is found. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="exP_implies_exuP"><span class="id" title="lemma">exP_implies_exuP</span></a> : <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#exuP"><span class="id" title="definition">exuP</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">x</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#find_some_first"><span class="id" title="definition">find_some_first</span></a> <span class="id" title="var">x</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<a class="idref" href="HoTT_Markov.html#find_some_first"><span class="id" title="definition">find_some_first</span></a> <span class="id" title="var">x</span>) <span class="id" title="tactic">at</span> 2.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="HoTT_Markov.html#find_some_first"><span class="id" title="definition">find_some_first</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#find_some_ex_find_ex"><span class="id" title="lemma">find_some_ex_find_ex</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">e</span>. <span class="id" title="tactic">intros</span> <span class="id" title="var">eq</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">refine</span> <span class="id" title="notation">(</span><span class="id" title="var">e</span><span class="id" title="notation">.1</span> <span class="id" title="notation">;</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#44400027531d4bc3f586a1997dc874c0"><span class="id" title="notation">((</span></a><span class="id" title="var">e</span><span class="id" title="notation">.2</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#44400027531d4bc3f586a1997dc874c0"><span class="id" title="notation">,</span></a> <span class="id" title="var">_</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#44400027531d4bc3f586a1997dc874c0"><span class="id" title="notation">),</span></a> <span class="id" title="var">_</span><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#44400027531d4bc3f586a1997dc874c0"><span class="id" title="notation">)</span></a><span class="id" title="notation">)</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="var">eq</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#find_ex_wit"><span class="id" title="lemma">find_ex_wit</span></a>. <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <a class="idref" href="HoTT_Markov.html#acc_nat_plus_inv"><span class="id" title="lemma">acc_nat_plus_inv</span></a> <span class="id" title="keyword">as</span> [<span class="id" title="var">wit</span> [<span class="id" title="var">Pwit</span> <span class="id" title="var">Ptop</span>]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span> <span class="id" title="tactic">in</span> <span class="id" title="var">Pwit</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<span class="id" title="definition">dec_paths</span> <span class="id" title="var">wit</span> <span class="id" title="var">k</span>). <span class="id" title="tactic">rewrite</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">apply</span> <span class="id" title="instance">leq_refl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#arith"><span class="id" title="axiom">arith</span></a>. <span class="comment">(*&nbsp;Arithmetic&nbsp;comparisons,&nbsp;getting&nbsp;tiring&nbsp;now&nbsp;*)</span><br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">revert</span> <span class="id" title="var">eq</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intro</span>. <span class="id" title="tactic">destruct</span> <span class="id" title="var">eq</span>. <span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#find_ex_wit"><span class="id" title="lemma">find_ex_wit</span></a>. <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <a class="idref" href="HoTT_Markov.html#acc_nat_plus_inv"><span class="id" title="lemma">acc_nat_plus_inv</span></a> <span class="id" title="keyword">as</span> [<span class="id" title="var">wit</span> [<span class="id" title="var">Pwit</span> <span class="id" title="var">Ptop</span>]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="tactic">in</span> *. <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="lemma">nat_plus_n_O</span> <span class="id" title="tactic">in</span> <span class="id" title="var">Pwit</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">X</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">snd</span> <span class="id" title="var">_</span> <span class="id" title="var">Pwit</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">Ptop</span> <span class="id" title="var">y</span> <span class="id" title="constructor">tt</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#arith"><span class="id" title="axiom">arith</span></a>. <span class="comment">(*&nbsp;Arithmetic&nbsp;getting&nbsp;tiring&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Import</span> <span class="id" title="var">TrM.Os_ReflectiveSubuniverses</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Import</span> <span class="id" title="var">TrM.RSU</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Finally, this variant of Markov's principle holds for
+      propositional truncation.  We apply <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#find_first"><span class="id" title="definition">find_first</span></a></span> under the
+      propositional truncation modality. 
+</div>
+<div class="code">
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Theorem</span> <a name="markov"><span class="id" title="lemma">markov</span></a> : <span class="id" title="inductive">Trunc</span> <span class="id" title="notation">-1</span> <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#find_first"><span class="id" title="definition">find_first</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">refine</span> (<span class="id" title="definition">O_functor</span> <span class="id" title="var">_</span> <a class="idref" href="HoTT_Markov.html#exP_implies_exuP"><span class="id" title="lemma">exP_implies_exuP</span></a> <span class="id" title="var">X</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Informally, a truncated existence proof of a natural number holding for
+      some <i>decidable</i> predicate holds enough information to reconstruct
+      the proof: we can use the truncated proof to guarantee the termination
+      of a recursive search procedure enumerating all naturals until it
+      stops at the first witness. 
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="HoTT_Markov.html#Markov"><span class="id" title="section">Markov</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Print</span> <span class="id" title="keyword">Assumptions</span> <a class="idref" href="HoTT_Markov.html#markov"><span class="id" title="lemma">markov</span></a>.<br/>
+
+<br/>
+<span class="comment">(*<br/>
+Axioms:<br/>
+&nbsp;&nbsp;istrunc_truncation&nbsp;:&nbsp;forall&nbsp;(n&nbsp;:&nbsp;trunc_index)&nbsp;(A&nbsp;:&nbsp;Type),&nbsp;IsTrunc&nbsp;n&nbsp;(Trunc&nbsp;n&nbsp;A)<br/>
+&nbsp;&nbsp;isequiv_apD10&nbsp;:&nbsp;Funext&nbsp;-&gt;&nbsp;forall&nbsp;(A&nbsp;:&nbsp;Type)&nbsp;(P&nbsp;:&nbsp;A&nbsp;-&gt;&nbsp;Type)&nbsp;(f&nbsp;g&nbsp;:&nbsp;forall&nbsp;x&nbsp;:&nbsp;A,&nbsp;P&nbsp;x),&nbsp;IsEquiv&nbsp;apD10<br/>
+&nbsp;&nbsp;arith&nbsp;:&nbsp;forall&nbsp;A&nbsp;:&nbsp;Type,&nbsp;A<br/>
+&nbsp;&nbsp;Funext&nbsp;:&nbsp;Type0<br/>
+*)</span><br/>
+
+<br/>
+<span class="id" title="keyword">Check</span> (@<a class="idref" href="HoTT_Markov.html#markov"><span class="id" title="lemma">markov</span></a> : <span class="id" title="class">Funext</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="notation">forall</span> <span class="id" title="var">P</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="inductive">Bool</span><span class="id" title="notation">,</span> <span class="id" title="inductive">Trunc</span> <span class="id" title="notation">-1</span> (<a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> <a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="HoTT_Markov.html#exP"><span class="id" title="definition">exP</span></a> <a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a>).<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>
