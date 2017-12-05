@@ -4,6 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm a researcher at Inria (see [http://www.irif.fr/~sozeau] for my
-academic website) and diletante musician (musings at
-https://soundcloud.com/mattamzik)
+I'm a researcher at Inria (see my [academic
+website](http://www.irif.fr/~sozeau)) and diletante musician
+([musings](https://soundcloud.com/mattamzik)). This blog is 
+about nothing in particular.
