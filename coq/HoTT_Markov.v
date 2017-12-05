@@ -171,7 +171,7 @@ Section Markov.
   (** Thanks to unique existence and the fact that [acc_nat i] is an
       HProp, we can use the weaker truncated unique existence assumption
       to prove that [acc_nat 0] is inhabited.
-      The proof starts by striping the trunctation and applying
+      The proof starts by striping the truncation and applying
       [acc_nat_plus].
    *)
 
@@ -194,7 +194,7 @@ Section Markov.
   (** Using any of these two accessibility predicates, we can show
       untrucated existence. We can even enrich our search procedure to
       show it produces the right witness: the first natural greater or
-      equal to n having the property [P]. *)
+      equal to [n] having the property [P]. *)
 
   Lemma acc_nat_plus_inv : forall n : nat,
       acc_nat n ->
@@ -249,7 +249,8 @@ Section Markov.
       intros. exact IHX.
   Defined.
 
-  (** We start the search at [0], using the existence or truncated unique existence proofs. *)
+  (** We start the search at [0], using the existence or truncated
+      unique existence proofs. *)
 
   Definition find_some_first (x : exP) := find_some_ex 0 (acc_some_nat_0 x).
 
@@ -273,7 +274,8 @@ Section Markov.
 
   (** Finding the witness is clearly independent of the accessibility proof. *)
 
-  Lemma find_ex_find_some_ex n (p : acc_nat n) : find_ex n p = find_some_ex n (acc_nat_acc_some_nat p).
+  Lemma find_ex_find_some_ex n (p : acc_nat n) :
+    find_ex n p = find_some_ex n (acc_nat_acc_some_nat p).
   Proof.
     induction p. simpl; apply idpath.
     simpl. rewrite <- IHp.
@@ -288,7 +290,7 @@ Section Markov.
       [find_some_first] indeed stops at the first [i] such that [P i]
       holds, whatever the accessibility proof. *)
 
-  Lemma find_some_ex_prf_irrel n (x y : acc_some_nat n) : find_some_ex n x = find_some_ex n y.
+  Lemma find_some_ex_irrel n (x y : acc_some_nat n) : find_some_ex n x = find_some_ex n y.
   Proof.
     induction x; destruct y; simpl. now destruct (set_path2 p p0).
     generalize (idpath (P i)).
@@ -311,7 +313,7 @@ Section Markov.
     find_some_ex n p = find_ex n (acc_some_nat_acc_nat p).
   Proof.
     rewrite find_ex_find_some_ex.
-    apply find_some_ex_prf_irrel.
+    apply find_some_ex_irrel.
   Defined.
 
   (** Existence of an [n] such that [P n] implies unique existence
@@ -377,7 +379,8 @@ Print Assumptions markov.
 (*
 Axioms:
   istrunc_truncation : forall (n : trunc_index) (A : Type), IsTrunc n (Trunc n A)
-  isequiv_apD10 : Funext -> forall (A : Type) (P : A -> Type) (f g : forall x : A, P x), IsEquiv apD10
+  isequiv_apD10 : Funext -> forall (A : Type) (P : A -> Type)
+     (f g : forall x : A, P x), IsEquiv apD10
   arith : forall A : Type, A
   Funext : Type0
 *)

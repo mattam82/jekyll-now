@@ -282,7 +282,7 @@ For the proof-irrelevant <span class="inlinecode"><a class="idref" href="HoTT_Ma
 Thanks to unique existence and the fact that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#i"><span class="id" title="variable">i</span></a></span> is an
       HProp, we can use the weaker truncated unique existence assumption
       to prove that <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a></span> <span class="inlinecode">0</span> is inhabited.
-      The proof starts by striping the trunctation and applying
+      The proof starts by striping the truncation and applying
       <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_nat_plus"><span class="id" title="lemma">acc_nat_plus</span></a></span>.
    
 </div>
@@ -313,7 +313,7 @@ Thanks to unique existence and the fact that <span class="inlinecode"><a class="
 Using any of these two accessibility predicates, we can show
       untrucated existence. We can even enrich our search procedure to
       show it produces the right witness: the first natural greater or
-      equal to n having the property <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span>. 
+      equal to <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a></span> having the property <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#P"><span class="id" title="variable">P</span></a></span>. 
 </div>
 <div class="code">
 
@@ -392,7 +392,8 @@ Using the <span class="inlinecode"><a class="idref" href="HoTT_Markov.html#acc_s
 </div>
 
 <div class="doc">
-We start the search at <span class="inlinecode">0</span>, using the existence or truncated unique existence proofs. 
+We start the search at <span class="inlinecode">0</span>, using the existence or truncated
+      unique existence proofs. 
 </div>
 <div class="code">
 
@@ -435,7 +436,8 @@ Finding the witness is clearly independent of the accessibility proof.
 <div class="code">
 
 <br/>
-&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_ex_find_some_ex"><span class="id" title="lemma">find_ex_find_some_ex</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">p</span> : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> (<a class="idref" href="HoTT_Markov.html#acc_nat_acc_some_nat"><span class="id" title="lemma">acc_nat_acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_ex_find_some_ex"><span class="id" title="lemma">find_ex_find_some_ex</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">p</span> : <a class="idref" href="HoTT_Markov.html#acc_nat"><span class="id" title="inductive">acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) :<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> (<a class="idref" href="HoTT_Markov.html#acc_nat_acc_some_nat"><span class="id" title="lemma">acc_nat_acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a>).<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">apply</span> <span class="id" title="constructor">idpath</span>.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="var">IHp</span>.<br/>
@@ -457,7 +459,7 @@ The following lemma is a proof that the search procedure
 <div class="code">
 
 <br/>
-&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_some_ex_prf_irrel"><span class="id" title="lemma">find_some_ex_prf_irrel</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">x</span> <span class="id" title="var">y</span> : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#y"><span class="id" title="variable">y</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a name="find_some_ex_irrel"><span class="id" title="lemma">find_some_ex_irrel</span></a> <span class="id" title="var">n</span> (<span class="id" title="var">x</span> <span class="id" title="var">y</span> : <a class="idref" href="HoTT_Markov.html#acc_some_nat"><span class="id" title="inductive">acc_some_nat</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a>) : <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#x"><span class="id" title="variable">x</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#y"><span class="id" title="variable">y</span></a>.<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">x</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">y</span>; <span class="id" title="tactic">simpl</span>. <span class="id" title="var">now</span> <span class="id" title="tactic">destruct</span> (<span class="id" title="lemma">set_path2</span> <span class="id" title="var">p</span> <span class="id" title="var">p0</span>).<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">generalize</span> (<span class="id" title="constructor">idpath</span> (<a class="idref" href="HoTT_Markov.html#Markov.P"><span class="id" title="variable">P</span></a> <span class="id" title="var">i</span>)).<br/>
@@ -489,7 +491,7 @@ This implies that starting from an arbitrary accessibility proof
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="HoTT_Markov.html#find_some_ex"><span class="id" title="lemma">find_some_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a> <span class="id" title="notation">=</span> <a class="idref" href="HoTT_Markov.html#find_ex"><span class="id" title="definition">find_ex</span></a> <a class="idref" href="HoTT_Markov.html#n"><span class="id" title="variable">n</span></a> (<a class="idref" href="HoTT_Markov.html#acc_some_nat_acc_nat"><span class="id" title="lemma">acc_some_nat_acc_nat</span></a> <a class="idref" href="HoTT_Markov.html#p"><span class="id" title="variable">p</span></a>).<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">Proof</span>.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="HoTT_Markov.html#find_ex_find_some_ex"><span class="id" title="lemma">find_ex_find_some_ex</span></a>.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#find_some_ex_prf_irrel"><span class="id" title="lemma">find_some_ex_prf_irrel</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="HoTT_Markov.html#find_some_ex_irrel"><span class="id" title="lemma">find_some_ex_irrel</span></a>.<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">Defined</span>.<br/>
 
 <br/>
@@ -582,7 +584,8 @@ Informally, a truncated existence proof of a natural number holding for
 <span class="comment">(*<br/>
 Axioms:<br/>
 &nbsp;&nbsp;istrunc_truncation&nbsp;:&nbsp;forall&nbsp;(n&nbsp;:&nbsp;trunc_index)&nbsp;(A&nbsp;:&nbsp;Type),&nbsp;IsTrunc&nbsp;n&nbsp;(Trunc&nbsp;n&nbsp;A)<br/>
-&nbsp;&nbsp;isequiv_apD10&nbsp;:&nbsp;Funext&nbsp;-&gt;&nbsp;forall&nbsp;(A&nbsp;:&nbsp;Type)&nbsp;(P&nbsp;:&nbsp;A&nbsp;-&gt;&nbsp;Type)&nbsp;(f&nbsp;g&nbsp;:&nbsp;forall&nbsp;x&nbsp;:&nbsp;A,&nbsp;P&nbsp;x),&nbsp;IsEquiv&nbsp;apD10<br/>
+&nbsp;&nbsp;isequiv_apD10&nbsp;:&nbsp;Funext&nbsp;-&gt;&nbsp;forall&nbsp;(A&nbsp;:&nbsp;Type)&nbsp;(P&nbsp;:&nbsp;A&nbsp;-&gt;&nbsp;Type)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(f&nbsp;g&nbsp;:&nbsp;forall&nbsp;x&nbsp;:&nbsp;A,&nbsp;P&nbsp;x),&nbsp;IsEquiv&nbsp;apD10<br/>
 &nbsp;&nbsp;arith&nbsp;:&nbsp;forall&nbsp;A&nbsp;:&nbsp;Type,&nbsp;A<br/>
 &nbsp;&nbsp;Funext&nbsp;:&nbsp;Type0<br/>
 *)</span><br/>
